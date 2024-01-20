@@ -27,14 +27,14 @@ while True:
     tela.fill(branco)  # Preencher a tela com fundo branco
 
     # Cabeça
-    pygame.draw.circle(tela, rosa, (400, 300), 50)
+    pygame.draw.circle(tela, rosa, (400, 300), 30)
 
     # Olhos
     pygame.draw.circle(tela, preto, (385, 290), 5)
     pygame.draw.circle(tela, preto, (415, 290), 5)
 
     # Boca
-    pygame.draw.arc(tela, preto, (385, 290, 30, 20), 0.7, 2.4, 2)
+    pygame.draw.arc(tela, preto, (385, 300, 30, 20), 0.7, 2.4, 2)
 
     # Cabelo
     pygame.draw.polygon(tela, azul, [(400, 250), (370, 280), (430, 280)])
