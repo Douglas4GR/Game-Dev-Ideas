@@ -4,6 +4,7 @@ pygame.init()
 
 
 largura, altura = 800, 600
+x, y = 0, 0
 tela = pygame.display.set_mode((largura, altura))
 
 pygame.display.set_caption("Meu Jogo Pygame")
@@ -15,10 +16,13 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+
+
     tela.fill((255, 255, 255)) #preenche a cor de fundo
 
-    pygame.draw.rect(tela, (255,0,0), (200,300,40,50)) #os parametros são organizados da seguinte maneira: onde vai ficar, qual cor vai ter, depois em qual posição ele começa (X e Y) e por fim seu tamanho
-    pygame.draw.rect(tela, (0,255,0), (210,310,40,50))
+    pygame.draw.rect(tela, (255,0,0), (x,y,50,60)) #os parametros são organizados da seguinte maneira: onde vai ficar, qual cor vai ter, depois em qual posição ele começa (X e Y) e por fim seu tamanho
+    y = y + 1 
+    pygame.draw.rect(tela, (0,255,0), (y,x,40,50))
     pygame.draw.circle(tela, (0,0,120), (300,260), 40)
 
 
