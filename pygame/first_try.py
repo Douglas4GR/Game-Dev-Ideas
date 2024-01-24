@@ -1,20 +1,21 @@
 import pygame
+from pygame.locals import *
+#from sys import exit
 
 pygame.init()
-pygame.display.set_caption("Meu Jogo Pygame")
 
 
 largura, altura = 800, 600
-tela = pygame.display.set_mode((largura, altura))
-
 x = largura /2
 y = altura /2
 z = 0
 
+tela = pygame.display.set_mode((largura, altura))
+pygame.display.set_caption("Meu Jogo Pygame")
 relogio = pygame.time.Clock()
 
 #todo jogo deve rodar num loop
-running = True
+running = True 
 while running:
     relogio.tick(30) #quantidade de frames por segundo
     for event in pygame.event.get():
@@ -38,7 +39,7 @@ while running:
     if z >= altura:
         z = 0
     z = z + 1 
-    pygame.draw.rect(tela, (0,255,0), (x,z,40,50))
+    pygame.draw.rect(tela, (0,255,0), (30,z,40,50))
     pygame.draw.circle(tela, (0,0,120), (300,260), 40)
 
 
