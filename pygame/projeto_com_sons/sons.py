@@ -5,15 +5,20 @@ from random import randint
 
 pygame.init()
 
+pygame.mixer.music.set_volume(0.5)
+musica_fundo = pygame.mixer.music.load('pygame/projeto_com_sons/elevator-music.mp3')
+pygame.mixer.music.play(-1)
 
 largura, altura = 800, 600
-x = largura /2
-y = altura /2
+x = int(largura /2)
+y = int(altura /2)
 
 x_verde = randint(40, 760)
 y_verde = randint(40, 560)
 
 pontuacao = 0
+
+som_colisao = pygame.mixer.Sound('pygame/projeto_com_sons/colisao.wav')
 
 fonte = pygame.font.SysFont('arial', 48, True, False)
 
@@ -50,6 +55,7 @@ while running:
             x_verde = randint(40, 760)
             y_verde = randint(40, 560)
             pontuacao += 1
+            som_colisao.play()
 
 
         tela.blit(texto_formatado, (10,10))
