@@ -42,6 +42,9 @@ y_vermelho = randint(40, 560)
 #função que aumenta a cobra
 def aumenta_cobra(lista_cobra, cobraXY):
     for XY in lista_cobra:
+        #XY = [x, y]
+        #XY[0] = x
+        #XY[1] = y
         pygame.draw.rect(tela, verde, (XY[0], XY[1], 20, 20))
 
 
@@ -83,10 +86,10 @@ while running:
         lista_cabeca = [] #lista que vai armazenar a posição da cabeça da cobra
         lista_cabeca.append(x_cobra) 
         lista_cabeca.append(y_cobra)
-
-        lista_cobra.append(lista_cabeca)
+        lista_cobra.append(lista_cabeca) #adiciona a cabeça da cobra na lista da cobra
         aumenta_cobra(lista_cobra, cobra)
-
+        if len(lista_cobra) > pontuacao:
+            del lista_cobra[0]
 
         tela.blit(texto_formatado, (10,10))
         pygame.display.update()
