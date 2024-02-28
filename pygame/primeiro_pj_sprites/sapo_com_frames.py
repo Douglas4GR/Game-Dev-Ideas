@@ -35,9 +35,11 @@ class Sapo(pygame.sprite.Sprite): #nome da classe tem que começar com letra mai
         self.rect.topleft = 50, 50
 
         self.animacao_ataque = False
+        self.barulho_ataque = pygame.mixer.Sound('pygame/primeiro_pj_sprites/sapos/barulho.wav')
 
     def atacar(self):
         self.animacao_ataque = True
+        self.barulho_ataque.play()
 
     def update(self): #método que atualiza a imagem
         if self.animacao_ataque == True:
