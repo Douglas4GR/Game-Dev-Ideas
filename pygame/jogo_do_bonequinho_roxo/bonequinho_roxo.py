@@ -60,7 +60,7 @@ while True:
             exit() #fecha o console
         
         if event.type == KEYDOWN:
-            if event.key == K_SPACE:
+            if event.key == K_d:
                 roxo.atacar()
 
     todos_sprites.draw(tela)
