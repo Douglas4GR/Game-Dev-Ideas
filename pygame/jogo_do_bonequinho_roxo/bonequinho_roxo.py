@@ -29,7 +29,7 @@ class Roxo(pygame.sprite.Sprite): #nome da classe tem que começar com letra mai
         self.image = pygame.transform.scale(self.image, (64*3, 64*3)) #tamanho da imagem
         
         self.rect = self.image.get_rect() #pega o retângulo da imagem
-        self.rect.topleft = 50, 50
+        self.rect.topleft = 50, 300
 
         self.barulho_andando = pygame.mixer.Sound('pygame/primeiro_pj_sprites/sapos/barulho.wav')
         
