@@ -1,12 +1,13 @@
 import pygame
 
 class Dino(pygame.sprite.Sprite):
-    def __init__(self, sprite_sheet):
+    def __init__(self, sprite_sheet, largura_tela, altura_tela):
         pygame.sprite.Sprite.__init__(self)
+        self.largura, self.altura = largura_tela, altura_tela
         self.imagens_dinossauro = []
         self.indice_lista = 0
         proporcoes_dino = 3
-        posic_inicial_X, posic_inicial_Y = 100, 200
+        posic_inicial_X, posic_inicial_Y = 100, self.altura - 90
 
         for i in range(3):
             frame_atual = sprite_sheet.subsurface(((i * 32), 0), (32, 32))

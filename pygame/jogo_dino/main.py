@@ -26,11 +26,11 @@ BRANCO = (255, 255, 255)
 sprite_sheet_1 = pygame.image.load(os.path.join(diretorio_imagens, 'dinoSpritesheet.png')).convert_alpha()
 
 # dino
-dinossauro = Dino(sprite_sheet_1)  # Cria uma instância da classe Dino
+dinossauro = Dino(sprite_sheet_1, LARGURA, ALTURA)  # Cria uma instância da classe Dino
 todas_as_sprites.add(dinossauro)
 
 #nuvem
-nuvem = Nuvem(sprite_sheet_1)
+nuvem = Nuvem(sprite_sheet_1, LARGURA, ALTURA)
 todas_as_sprites.add(nuvem)
 
 # loop principal
