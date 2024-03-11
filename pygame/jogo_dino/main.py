@@ -30,8 +30,9 @@ dinossauro = Dino(sprite_sheet_1, LARGURA, ALTURA)  # Cria uma instância da cla
 todas_as_sprites.add(dinossauro)
 
 #nuvem
-nuvem = Nuvem(sprite_sheet_1, LARGURA, ALTURA)
-todas_as_sprites.add(nuvem)
+for i in range (3):
+    nuvem = Nuvem(sprite_sheet_1, LARGURA, ALTURA)
+    todas_as_sprites.add(nuvem)
 
 # loop principal
 while True:
