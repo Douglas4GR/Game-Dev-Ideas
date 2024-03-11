@@ -1,13 +1,15 @@
 import pygame
 from pygame.locals import *
 from sys import exit
-import os #biblioteca para manipular arquivos
+import os
+from class_dino import Dino
+from class_nuvem import Nuvem
 
-diretorio_main = os.path.dirname(__file__) #diretório do arquivo
+diretorio_main = os.path.dirname(__file__)
 diretorio_imagens = os.path.join(diretorio_main, 'imagens')
 diretorio_sons = os.path.join(diretorio_main, 'sons')
 
-#tela
+# tela
 LARGURA = 640
 ALTURA = 480
 tela = pygame.display.set_mode((LARGURA, ALTURA))
@@ -15,44 +17,18 @@ pygame.display.set_caption('Dino')
 todas_as_sprites = pygame.sprite.Group()
 relogio = pygame.time.Clock()
 
-#spritesheets
-sprite_sheet_1 = pygame.image.load(os.path.join(diretorio_imagens,'dinoSpritesheet.png')).convert_alpha()
+# spritesheets
+sprite_sheet_1 = pygame.image.load(os.path.join(diretorio_imagens, 'dinoSpritesheet.png')).convert_alpha()
 
-#cores
+# cores
 PRETO = (0, 0, 0)
 BRANCO = (255, 255, 255)
 
-#dino
-class Dino(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.imagens_dinossauro = []
-        self.indice_lista = 0
-        proporcoes_dino = 3
-        posic_inicial_X, posic_inicial_Y = 100, 200
-
-        for i in range(3):
-            frame_atual = sprite_sheet_1.subsurface(((i * 32),0),(32,32))
-            frame_atual = pygame.transform.scale(frame_atual, (32 * proporcoes_dino, 32 * proporcoes_dino))
-            self.imagens_dinossauro.append(frame_atual)
-        
-        self.image = self.imagens_dinossauro[self.indice_lista]
-        self.rect = self.image.get_rect()
-        self.rect.center = (posic_inicial_X,posic_inicial_Y)
-
-    def update(self):
-        if self.indice_lista > 2:
-            self.indice_lista = 0
-
-        self.indice_lista += 0.25
-        self.image = self.imagens_dinossauro[int(self.indice_lista)]
-
-
-dinossauro = Dino()
+# dino
+dinossauro = Dino(sprite_sheet_1)  # Cria uma instância da classe Dino
 todas_as_sprites.add(dinossauro)
 
-
-#loop principal
+# loop principal
 while True:
     relogio.tick(30)
     tela.fill(BRANCO)
@@ -60,7 +36,6 @@ while True:
         if evento.type == QUIT:
             pygame.quit()
             exit()
-
 
     todas_as_sprites.draw(tela)
     todas_as_sprites.update()
