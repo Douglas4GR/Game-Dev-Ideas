@@ -4,6 +4,7 @@ from sys import exit
 import os
 from class_dino import Dino
 from class_nuvem import Nuvem
+from class_chao import Chao
 
 
 #controlando os arquivos
@@ -28,6 +29,11 @@ sprite_sheet_1 = pygame.image.load(os.path.join(diretorio_imagens, 'dinoSpritesh
 # dino
 dinossauro = Dino(sprite_sheet_1, LARGURA, ALTURA)  # Cria uma instância da classe Dino
 todas_as_sprites.add(dinossauro)
+
+#chao 
+for i in range(20):
+    chao = Chao(sprite_sheet_1, LARGURA, ALTURA, i)
+    todas_as_sprites.add(chao)
 
 #nuvem
 for i in range (3):

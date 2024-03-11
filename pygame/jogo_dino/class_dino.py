@@ -7,7 +7,7 @@ class Dino(pygame.sprite.Sprite):
         self.imagens_dinossauro = []
         self.indice_lista = 0
         proporcoes_dino = 3
-        posic_inicial_X, posic_inicial_Y = 100, self.altura - 90
+        posic_inicial_X, posic_inicial_Y = 100, self.altura - 64
 
         for i in range(3):
             frame_atual = sprite_sheet.subsurface(((i * 32), 0), (32, 32))
