@@ -6,6 +6,9 @@ from class_dino import Dino
 from class_nuvem import Nuvem
 from class_chao import Chao
 
+pygame.init()
+pygame.mixer.init()
+
 
 #controlando os arquivos
 diretorio_main = os.path.dirname(__file__)
@@ -48,7 +51,10 @@ while True:
         if evento.type == QUIT:
             pygame.quit()
             exit()
-
+        if evento.type == KEYDOWN:
+            if evento.key == K_SPACE:
+                dinossauro.pular()
+                
     todas_as_sprites.draw(tela)
     todas_as_sprites.update()
     pygame.display.flip()

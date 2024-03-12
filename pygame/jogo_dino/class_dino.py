@@ -9,6 +9,8 @@ class Dino(pygame.sprite.Sprite):
         proporcoes_dino = 3
         posic_inicial_X, posic_inicial_Y = 100, self.altura - 64
 
+        self.pulo = False
+
         for i in range(3):
             frame_atual = sprite_sheet.subsurface(((i * 32), 0), (32, 32))
             frame_atual = pygame.transform.scale(frame_atual, (32 * proporcoes_dino, 32 * proporcoes_dino))
@@ -18,7 +20,17 @@ class Dino(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (posic_inicial_X, posic_inicial_Y)
 
+    def pular(self):
+        self.pulo = True
+
     def update(self):
+        if self.pulo == True:
+            self.rect.y -= 20
+        if self.rect.y == self.altura - 90:
+            self.rect.y += 30
+            if self.rect.y == self.altura - 64:
+                self.pulo = False
+
         if self.indice_lista > 2:
             self.indice_lista = 0
 
