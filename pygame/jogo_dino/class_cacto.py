@@ -9,6 +9,7 @@ class Cacto(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (64, 64))
         
         self.rect = self.image.get_rect()
+        self.mask = pygame.mask.from_surface(self.image)
         self.rect.center = [largura_tela, altura_tela - 64]
     
     def update(self):

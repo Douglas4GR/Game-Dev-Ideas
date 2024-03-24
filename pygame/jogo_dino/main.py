@@ -10,7 +10,6 @@ from class_cacto import Cacto
 pygame.init()
 pygame.mixer.init()
 
-
 #controlando os arquivos
 diretorio_main = os.path.dirname(__file__)
 diretorio_imagens = os.path.join(diretorio_main, 'imagens')
@@ -20,7 +19,6 @@ diretorio_sons = os.path.join(diretorio_main, 'sons')
 LARGURA, ALTURA = 640, 480
 tela = pygame.display.set_mode((LARGURA, ALTURA))
 pygame.display.set_caption('Dino')
-todas_as_sprites = pygame.sprite.Group()
 relogio = pygame.time.Clock()
 
 # cores
@@ -30,25 +28,35 @@ BRANCO = (255, 255, 255)
 # spritesheets
 sprite_sheet_1 = pygame.image.load(os.path.join(diretorio_imagens, 'dinoSpritesheet.png')).convert_alpha()
 
-# dino
+# objetos visiveis
+todas_as_sprites = pygame.sprite.Group()
+
+# colisões
+grupo_obstaculos = pygame.sprite.Group()
+
+
+''' OBJETOS '''
+# dino (visivel e colisor)
 dinossauro = Dino(sprite_sheet_1, LARGURA, ALTURA)  # Cria uma instância da classe Dino
 todas_as_sprites.add(dinossauro)
 
-#chao 
+# chao (visivel)
 for i in range(20):
     chao = Chao(sprite_sheet_1, LARGURA, ALTURA, i)
     todas_as_sprites.add(chao)
 
-#nuvem
+# nuvem (visivel)
 for i in range (3):
     nuvem = Nuvem(sprite_sheet_1, LARGURA, ALTURA)
     todas_as_sprites.add(nuvem)
 
-#cacto
+# cacto (visivel e colisor)
 cacto = Cacto(sprite_sheet_1,LARGURA,ALTURA)
 todas_as_sprites.add(cacto)
+grupo_obstaculos.add(cacto)
 
-# loop principal
+
+''' LOOP PRINCIPAL '''
 while True:
     relogio.tick(30)
     tela.fill(BRANCO)

@@ -25,6 +25,7 @@ class Dino(pygame.sprite.Sprite):
 
         self.image = self.imagens_dinossauro[self.indice_lista]
         self.rect = self.image.get_rect()
+        self.mask = pygame.mask.from_surface(self.image) #superfície de colisão
         self.rect.center = (self.posic_inicial_X, self.posic_inicial_Y)
 
     def pular(self):
