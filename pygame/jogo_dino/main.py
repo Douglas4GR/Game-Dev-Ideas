@@ -5,6 +5,7 @@ import os
 from class_dino import Dino
 from class_nuvem import Nuvem
 from class_chao import Chao
+from class_cacto import Cacto
 
 pygame.init()
 pygame.mixer.init()
@@ -42,6 +43,10 @@ for i in range(20):
 for i in range (3):
     nuvem = Nuvem(sprite_sheet_1, LARGURA, ALTURA)
     todas_as_sprites.add(nuvem)
+
+#cacto
+cacto = Cacto(sprite_sheet_1,LARGURA,ALTURA)
+todas_as_sprites.add(cacto)
 
 # loop principal
 while True:

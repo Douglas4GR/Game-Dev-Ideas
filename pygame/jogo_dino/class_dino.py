@@ -29,6 +29,7 @@ class Dino(pygame.sprite.Sprite):
 
     def pular(self):
         self.pulo = True
+        self.som_pulo.play()
 
     def update(self):
         if self.pulo == True:
