@@ -1,13 +1,20 @@
 import pygame
+import os
+
+diretorio_main = os.path.dirname(__file__)
+diretorio_sons = os.path.join(diretorio_main, 'sons')
 
 class Dino(pygame.sprite.Sprite):
     def __init__(self, sprite_sheet, largura_tela, altura_tela):
         pygame.sprite.Sprite.__init__(self)
+        self.som_pulo = pygame.mixer.Sound(os.path.join(diretorio_sons, 'sons_jump_sound.wav'))
+        self.som_pulo.set_volume(1)
+        
         self.largura, self.altura = largura_tela, altura_tela
         self.imagens_dinossauro = []
         self.indice_lista = 0
         proporcoes_dino = 3
-        posic_inicial_X, posic_inicial_Y = 100, self.altura - 64
+        self.posic_inicial_X, self.posic_inicial_Y = 100, self.altura - 64 - 42
 
         self.pulo = False
 
@@ -18,18 +25,21 @@ class Dino(pygame.sprite.Sprite):
 
         self.image = self.imagens_dinossauro[self.indice_lista]
         self.rect = self.image.get_rect()
-        self.rect.center = (posic_inicial_X, posic_inicial_Y)
+        self.rect.center = (self.posic_inicial_X, self.posic_inicial_Y)
 
     def pular(self):
         self.pulo = True
 
     def update(self):
         if self.pulo == True:
-            self.rect.y -= 20
-        if self.rect.y == self.altura - 90:
-            self.rect.y += 30
-            if self.rect.y == self.altura - 64:
+            if self.rect.y <= 200:
                 self.pulo = False
+            self.rect.y -= 20
+        else:
+            if self.rect.y < self.posic_inicial_Y:
+                self.rect.y += 30
+            else:
+                self.rect.y = self.posic_inicial_Y
 
         if self.indice_lista > 2:
             self.indice_lista = 0

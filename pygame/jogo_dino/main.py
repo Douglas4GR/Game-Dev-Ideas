@@ -53,7 +53,10 @@ while True:
             exit()
         if evento.type == KEYDOWN:
             if evento.key == K_SPACE:
-                dinossauro.pular()
+                if dinossauro.rect.y != dinossauro.posic_inicial_Y:
+                    pass
+                else:
+                    dinossauro.pular()
                 
     todas_as_sprites.draw(tela)
     todas_as_sprites.update()
