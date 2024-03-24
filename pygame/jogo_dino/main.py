@@ -28,11 +28,16 @@ BRANCO = (255, 255, 255)
 # spritesheets
 sprite_sheet_1 = pygame.image.load(os.path.join(diretorio_imagens, 'dinoSpritesheet.png')).convert_alpha()
 
+#sons
+som_colisao = pygame.mixer.Sound(os.path.join(diretorio_sons, 'sons_death_sound.wav'))
+som_colisao.set_volume(2)
+
 # objetos visiveis
 todas_as_sprites = pygame.sprite.Group()
 
 # colisões
 grupo_obstaculos = pygame.sprite.Group()
+colidiu = False
 
 
 ''' OBJETOS '''
@@ -70,7 +75,18 @@ while True:
                     pass
                 else:
                     dinossauro.pular()
-                
+
     todas_as_sprites.draw(tela)
-    todas_as_sprites.update()
+
+    #a condição true ou false diz se o objeto vai sumir ou não
+    colisoes = pygame.sprite.spritecollide(dinossauro, grupo_obstaculos, False, pygame.sprite.collide_mask)
+    if colisoes and colidiu == False:
+        som_colisao.play()
+        colidiu = True
+
+    if colidiu == True:
+        pass
+    else:
+        todas_as_sprites.update()
+    
     pygame.display.flip()
