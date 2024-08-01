@@ -1,9 +1,10 @@
-🇧🇷) Vou começar do zero absoluto com pequenos projetos de desenvolvimento de jogos. É isso!
+# GameDev ideas
 
-🇺🇸) I'm going to start from absolute zero with small game development projects. That's it!
+Bem-vindo ao meu repositório de aprendizado de desenvolvimento de jogos! Neste repositório, estou documentando minha jornada de aprendizado na criação de jogos pequenos. Até agora, tenho utilizado Python e a biblioteca Pygame para desenvolver meus projetos.
 
-🇪🇸) Voy a empezar desde cero absoluto con proyectos de desarrollo de juegos pequeños. Eso es todo!
+## Sobre
+Este repositório contém diversos jogos que desenvolvi enquanto aprendo os fundamentos do desenvolvimento de jogos. Cada projeto é um passo em minha jornada, onde exploro diferentes conceitos e técnicas.
 
-🇫🇷) Je vais repartir de zéro absolu avec des petits projets de développement de jeux. C'est ça!
-
-🇯🇵) 絶対ゼロから小さなゲーム開発プロジェクトを始めるつもりです。それでおしまい！
+## Tecnologias Utilizadas
+Python: A linguagem principal que estou usando para desenvolvimento.
+Pygame: Uma biblioteca de Python usada para criar jogos 2D.
