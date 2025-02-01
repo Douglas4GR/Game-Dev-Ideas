@@ -8,3 +8,4 @@ Este repositório contém diversos jogos que desenvolvi enquanto aprendo os fund
 ## Tecnologias Utilizadas
 Python: A linguagem principal que estou usando para desenvolvimento.
 Pygame: Uma biblioteca de Python usada para criar jogos 2D.
+ 
